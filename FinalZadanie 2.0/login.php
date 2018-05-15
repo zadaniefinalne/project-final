@@ -7,6 +7,8 @@
  */
 require_once "db.php";
 session_start();
+unset($_SESSION['checktokenadmin']);
+unset($_SESSION['checktoken']);
 if(isset($_POST['submit2'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 unset($_SESSION['checktokenadmin']);
