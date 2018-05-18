@@ -25,6 +25,9 @@
             <a class="nav-link" href="adminusersoverview.php">Users</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="adminnewsletter.php"> Newsletter</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="login.php">Logout</a>
         </li>
 

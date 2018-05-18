@@ -93,7 +93,12 @@ $KM = mysqli_fetch_row($result);
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Final Zadanie</title>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC3ZrhOr3gSOT0q8ezzVGPF6ngHt4683eQ&sensor=false"></script> -->
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3ZrhOr3gSOT0q8ezzVGPF6ngHt4683eQ&libraries=geometry,places">
+    </script>
+
     <script type="text/javascript" src="v3_epoly.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">

@@ -4,6 +4,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
+
+
 <nav class="navbar navbar-expand-sm bg-dark">
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -23,6 +25,9 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="adminusersoverview.php">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="adminnewsletter.php"> Newsletter</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="login.php">Logout</a>
@@ -87,6 +92,32 @@ if(isset($_GET['sorting']))
     }
 }
 
+$url =  "generatepage/tbAlltraces.php?sorting=" . $_GET['sorting'] . "&field=" . $_GET['field'];
+?>
+<script>
+
+
+    function showUser() {
+
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("alltraces").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET",<?php echo "\"" .  $url . "\""; ?>,true);
+        xmlhttp.send();
+    }
+    window.setInterval(function(){ showUser() }, 1000);
+</script>
+
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['submit'])) {
@@ -101,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 echo "<h1 style='text-align: center'>All traces</h1>";
 
-echo "<table class='table table-dark table-striped'><tr>
+echo "<table  id=\"alltraces\" class='table table-dark table-striped'><tr>
 <th><a href=\"admintracelist.php?sorting=$sort&field=StartingPoint\">Starting Point</a></th>
 <th><a href=\"admintracelist.php?sorting=$sort&field=EndPoint\">End Point</a></th>
 <th><a href=\"admintracelist.php?sorting=$sort&field=Mode\">Mode</a></th>
@@ -129,4 +160,5 @@ mysqli_close($connection);
     <input type="text" name="email">
     <input type="submit" name="submit" value="filter" class=" btn btn-secondary">
 </form>
+
 

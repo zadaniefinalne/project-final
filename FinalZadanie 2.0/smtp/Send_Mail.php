@@ -1,7 +1,7 @@
 <?php
 function Send_Mail($to,$subject,$body)
 {
-require 'class.phpmailer.php';
+    require_once 'class.phpmailer.php';
 $from       = "zadaniefinalne@gmail.com";
 $mail       = new PHPMailer();
 $mail->IsSMTP(true);            // use SMTP

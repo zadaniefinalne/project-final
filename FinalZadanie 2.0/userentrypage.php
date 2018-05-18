@@ -17,8 +17,12 @@
             <a class="nav-link navbar-right" href="performance.php">Activities</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="newsletter.php"> Newsletter</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="login.php"> Logout</a>
         </li>
+
     </ul>
 </nav>
 

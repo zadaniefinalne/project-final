@@ -17,9 +17,13 @@ echo "<nav class=\"navbar navbar-expand-sm bg-dark\">
         <li class=\"nav-item\">
         <a class=\"nav-link navbar-right\" href=\"performance.php\">Activities</a>
         </li>
+          <li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"newsletter.php\"> Newsletter</a>
+        </li>
         <li class=\"nav-item\">
         <a class=\"nav-link navbar-right\" href=\"login.php\">Logout</a>
         </li>
+      
         </ul>
         </nav>
        
