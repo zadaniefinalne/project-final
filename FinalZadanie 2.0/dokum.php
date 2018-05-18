@@ -57,6 +57,7 @@
         <h2>Použité API</h2>
         Google maps JavaScript API
         JsPDF
+        PHPMailer
         <br> <br>
         <h2>Rozdelenie úloh</h2>
 
