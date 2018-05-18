@@ -25,7 +25,7 @@ if(!empty($_POST['email']) && isset($_POST['email']) &&  !empty($_POST['password
         $count=mysqli_query($connection,"SELECT id FROM FinalZadanie WHERE email='$email'");
         if(mysqli_num_rows($count) < 1)
         {
-            mysqli_query($connection,"INSERT INTO FinalZadanie(email,pass,activation,meno,priezvisko,strednaskola,strednaskolaadresa,bydliskoulica,PSC,bydliskoobec,TypUzivatela) VALUES('$email','$password','$activation','$meno','$priezvisko','$strednaskola','$strednaskolaadresa','$bydliskoulica','$PSC','$bydliskoobec', '$uzivatel')");
+            mysqli_query($connection,"INSERT INTO FinalZadanie(email,pass,activation,meno,priezvisko,strednaskola,strednaskolaadresa,bydliskoulica,PSC,bydliskoobec,TypUzivatela,newsletter) VALUES('$email','$password','$activation','$meno','$priezvisko','$strednaskola','$strednaskolaadresa','$bydliskoulica','$PSC','$bydliskoobec', '$uzivatel', '0')");
 
             include 'smtp/Send_Mail.php';
             $to=$email;
