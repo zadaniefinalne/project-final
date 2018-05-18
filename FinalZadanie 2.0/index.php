@@ -19,7 +19,7 @@
             <a class="nav-link" href="login.php"> Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="dokum.php"> Dokumentacia</a>
+            <a class="nav-link" href="dokum.php"> Documentation</a>
         </li>
     </ul>
 </nav>

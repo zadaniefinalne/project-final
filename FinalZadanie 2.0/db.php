@@ -6,7 +6,7 @@ define('DB_DATABASE', 'FinalZadanie');
 $connection = @mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
 $base_url='http://147.175.98.137/final/';
-$hostname = "147.175.98.137";
+$hostname = "localhost";
 $username = "frantisek.ff";
 $password = "frantisek95";
 $dbname = "FinalZadanie";

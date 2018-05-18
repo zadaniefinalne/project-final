@@ -27,12 +27,12 @@ else header("location: userentrypage.php"); // klasicky redirect ak sa prihlasil
 
 if(isset($_POST['submit3'])) {  // update noveho pw po vyplneni formy a taktiež presmerovanie
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $con = mysqli_connect($hostname, $username, $password, $dbname);
-        mysqli_set_charset($con, 'utf8');
+        //$con = mysqli_connect($hostname, $username, $password, $dbname);
+        mysqli_set_charset($connection, 'utf8');
         $newpw = md5($_POST['zmenheslo']);
         $sql = "UPDATE FinalZadanie SET pass = '$newpw' WHERE email = '$name'";
-        mysqli_query($con, $sql);
-        mysqli_close($con);
+        mysqli_query($connection, $sql);
+        mysqli_close($connection);
         header("location: userentrypage.php");
     }
     }

@@ -14,42 +14,30 @@ if(!empty($_POST['email']) && isset($_POST['email']) &&  !empty($_POST['password
     $PSC = mysqli_real_escape_string($connection,$_POST['PSC']);
     $bydliskoobec = mysqli_real_escape_string($connection,$_POST['bydliskoobec']);
     $uzivatel = "1";   // admin = 0, uzivatel = 1, anonym = 2
-
     $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/';
-
     if(preg_match($regex, $email))
     {
         $password=md5($password); // Encrypted password
         $activation=md5($email.time()); // Encrypted email+timestamp
-
         $count=mysqli_query($connection,"SELECT id FROM FinalZadanie WHERE email='$email'");
         if(mysqli_num_rows($count) < 1)
         {
-            mysqli_query($connection,"INSERT INTO FinalZadanie(email,pass,activation,meno,priezvisko,strednaskola,strednaskolaadresa,bydliskoulica,PSC,bydliskoobec,TypUzivatela) VALUES('$email','$password','$activation','$meno','$priezvisko','$strednaskola','$strednaskolaadresa','$bydliskoulica','$PSC','$bydliskoobec', '$uzivatel');");
-
-            include 'smtp/Send_Mail.php';
+            mysqli_query($connection,"INSERT INTO FinalZadanie(email,pass,activation,meno,priezvisko,strednaskola,strednaskolaadresa,bydliskoulica,PSC,bydliskoobec,TypUzivatela,newsletter) VALUES('$email','$password','$activation','$meno','$priezvisko','$strednaskola','$strednaskolaadresa','$bydliskoulica','$PSC','$bydliskoobec','1','0')");            include 'smtp/Send_Mail.php';
             $to=$email;
             $subject="Email verification";
             $body='Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get started using your Website account. <br/> <br/> <a href="'.$base_url.'activation.php?code='.$activation.'">'.$base_url.'activation/'.$activation.'</a>';
             Send_Mail($to,$subject,$body);
-
             $msg= "Registration successful, please activate email.";
-
         }
         else
         {
             $msg= '<font color="#cc0000">The email is already taken, please try new.</font>';
         }
-
-
-
     }
     else
     {
         $msg = '<font color="#cc0000">The email you have entered is invalid, please try again.</font>';
     }
-
-
 }
 ?>
 <!doctype html>
@@ -78,8 +66,8 @@ if(!empty($_POST['email']) && isset($_POST['email']) &&  !empty($_POST['password
     </form>
 
     <div class="center">
-    <a href="login.php"> <br>Already a member? Click to login.</a>
+        <a href="login.php"> <br>Already a member? Click to login.</a>
     </div>
-    </div>
+</div>
 </body>
 </html>
